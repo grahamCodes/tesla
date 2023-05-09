@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Arbitrary values for easy testiing */
+.main {
+    background-color: grey;
+    width: 100%;
+    height: 100vh;
+}
+/* The nav should be fixed. Fixed will stick it to the viewport. Giving it a padding of 20px will let you position your X vertically!  */
+nav {
+    width: 250px;
+    background-color: antiquewhite;
+    height: 500px;
+    position: fixed;
+    right: -250px;
+    transition: 2s;
+    padding: 20px;
+}
+/* We can put the ul as a flex container to target the list items */
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 40px;
+    height: 100%;
+    list-style: none;
+}
+/* This hides the checkbox */
+#checkBox{
+    display: none;
+}
+
+/* This targets the nav (aka navigation tag) when the button is checked */
+#checkBox:checked ~ nav {
+    right:0px;
+    transition: 2s;
+}
+
+/* This is going to be an invisible screen we put over the entire screen. We set a position of fixed, then right/left/top/bottom of 0. That makes it a colorless box covering everything. We also set the point-events to none so that we can't really click on it.  */
+.blurOver {
+position: fixed;
+right: 0;
+left: 0;
+top: 0;
+bottom: 0;
+pointer-events: none;
+}
+
+/* This targets our .blurOver screen on the click event, and makes the invisible box blur our screen and make it clickable! Since it is also a label for="checkBox", clicking the screen will uncheck the checkbox. */
+#checkBox:checked ~ .blurOver {
+backdrop-filter: blur(5px);
+pointer-events: all;
+
+}
+
+label {
+    font-size: 100px;
+}
+
+/* This will position the X, but not vertically. Check the nav for that! */
+nav > label {
+    font-size: 20px;
+    margin-left: 20px;
+
+}

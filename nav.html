@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="nav.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <!-- The order of the input and labels seems important in order to target/blur the things you want -->
+
+        <!-- This must be put ABOVE what it will target, and it must target a child -->
+        <input id="checkBox" type="checkbox">
+
+        <!-- This will basically check your checkbox. -->
+        <label for="checkBox">Open</label>
+
+        <!-- This label will also target the same checkbox! It also can turn it on/off.   -->
+        <label class="blurOver" for="checkBox"></label>
+
+
+        <nav>
+            <label for="checkBox">X</label>
+
+            <ul>
+                <li>Dog</li>
+                <li>Dog</li>
+                <li>Dog</li>
+                <li>Dog</li>
+                <li>Dog</li>
+                <li>Dog</li>
+                <li>Dog</li>
+            </ul>
+        </nav>
+
+
+
+
+    </div>
+</body>
+
+</html>

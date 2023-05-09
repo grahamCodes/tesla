@@ -1,0 +1,422 @@
+@font-face {
+    font-family: 'Tesla';
+    src: url(./GothamSSm-Book_Web.woff2);
+}
+@font-face {
+   font-family: 'TeslaBold';
+    src: url(./GothamSSm-Medium_Web.woff2);
+  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Tesla';
+}
+
+/* Nav bar */
+nav {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    /* right: 0; */
+    height: 100%;
+    background-color: white;
+    width: 250px;
+    opacity: 0;
+    transition: 1s;
+
+}
+
+.navDis {
+    display: none;
+}
+
+li > a {
+    text-decoration: none;
+    color: black;
+}
+
+nav > label {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+
+}
+
+/* Checkbox Onclick action thang */
+
+
+#openMenuCheckbox:checked ~ nav {
+    right: 0;
+    opacity: 1;
+    transition: 1s;
+}
+
+.blurOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 1s;
+    pointer-events: none;
+}
+
+#openMenuCheckbox:checked ~ .blurOverlay {
+    backdrop-filter: blur(3px);
+    pointer-events: all;
+}
+
+#openMenuCheckbox {
+    display: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+    margin-top: 50px;
+    margin-left: 50px;
+    list-style-type: none;
+}
+
+li {
+    color: black;
+    
+}
+
+/* Top stuff */
+
+.leftWrap > a, .yJump2 > a, .middleWrap > a, .rightWrap > a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.main {
+    
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
+.modelY, .modelS, .modelX, .solarPanel, .solarRoof, .charger {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size:cover;
+    scroll-snap-align: start;
+}
+.modelY {
+    background-image: url("./modely.jpg");
+}
+.modelS {
+    background-image: url("./models.jpg");
+}
+
+.modelX {
+    background-image: url("./modelx.jpg");
+}
+.solarPanel {
+    background-image: url("./solarpanels.jpg");
+}
+.solarRoof {
+    background-image: url("./solarroof.webp");
+}
+.charger {
+    background-image: url("./charger.jpg");
+}
+
+
+.middleWrap > a, .rightWrap > a {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+svg {
+    width: 125px;
+}
+
+.headerWrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 45px;
+    padding-top: 50px;
+    position: fixed;
+    width: 100%;
+}
+
+
+/* Middle Page CSS */
+
+.textWrap1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.textWrap {
+  text-align: center;
+}
+
+.textWrap > h1 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    margin: 0, auto;
+}
+
+.textWrap > a, #yJump2 {
+    color: black;
+    margin: 0 auto;
+    width: 100%;
+    text-decoration: none;
+    box-shadow: 0 1px rgba(23, 26, 32, 0.8);
+    transition: 2s;
+
+}
+.textWrap > a:hover, #yJump2:hover {
+    /* border-bottom: black 3px solid; */
+    /* text-decoration: none; */
+  box-shadow: 0 2px rgba(23, 26, 32, 0.8);
+}
+
+.buttonWrap {
+    margin-bottom: 100px;
+}
+
+
+
+.buttonWrap > button {
+    margin: 10px;
+    height: 45px;
+    font-size: 18px;
+    padding: 4px 24px;
+    width: 310px;
+    border-radius: 5px;
+   
+}
+
+/* This is a special one since I put the bouncing icon in late. It has extra selectors to increase specificity   */
+.textWrap1 > .specialB {
+    margin-bottom: -400px;
+}
+
+.buttonWrap :first-child {
+    background-color: rgba(23, 26, 32, 0.8);
+    color: white;
+    border: 3px solid  rgba(23, 26, 32, 0);
+
+}
+
+.buttonWrap :last-child {
+    background-color: rgba(244, 244, 244, 0.65);
+   border: 3px solid  rgba(244, 244, 244, 0);
+}
+
+#buttonOrder {
+    background-color: #171A20;
+    color: white;
+    margin-top: 450px;
+}
+
+/* Footer stuff */
+
+.footer {
+
+    display: flex;
+    justify-content: center;
+   margin-bottom: 100px;
+   gap: 10px;
+   font-size: 10px;
+}
+
+
+/* Hover on upper buttons */
+
+.hovBlur:hover {
+    background-color:rgba(255,255,255, .5)
+}
+
+.middleWrap > a, .rightWrap > a, .rightWrap > label {
+    /* width: 55px;
+    height: 24px; */
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+/* Change cursor when button hover */
+
+button:hover {
+cursor: pointer;
+
+}
+
+/* Appearing top bar */
+
+.leftWrap, .middleWrap, .rightWrap {
+    opacity: 0;
+    animation: appear 1s .3s 1 forwards;
+}
+
+#yJump {
+    opacity: 0;
+    animation: appear2 1s 1s 1 forwards;
+}
+
+.yJump2 {
+    opacity: 0;
+    animation: appear2 1s 1.5s 1 forwards;
+}
+
+.buttonWrap > button {
+    /* margin-right: 50px; */
+    animation: button 1s 2s 1 forwards;
+    opacity: 0;
+}
+
+/* Bouncing icon */
+
+
+
+i {
+    animation: bounce 1.5s infinite, fadein 2s 2.3s 1 forwards;
+    opacity: 0;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+@keyframes button {
+    0% {
+        opacity: 0;
+         margin-right: 50px;
+         margin-left: 50px;
+
+
+    }
+    100% {
+        opacity: 1;
+        margin-right: 0px;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+
+        
+    }
+
+    75% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translate(0);    }
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes appear2 {
+    0% {
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes appear3 {
+    0% {
+        transform: translateY(25px);
+    }
+    50% {
+        transform: translateY(15px);
+
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blurOverlay {
+    z-index: 1;
+}
+nav {
+    z-index: 2;
+}
+
+@media screen and (max-width:1140px) {
+    .middleWrap {
+        display: none;
+    }
+    .disappear {
+        display: none;
+    }
+    .hovBlur{
+        background-color: rgba(148, 168, 201, .5);
+    }
+    .headerWrap {
+        justify-content: space-between;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .navDis {
+        display: block;
+    }
+    .navList{
+        font-size: 12px;
+
+    }
+}
+
+@media screen and (max-width:655px){
+    .buttonWrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttonWrap > button {
+        width: 90vw;
+    }
+    .modelY {
+        background-image: url(./Homepage-ModelY-LHD-Mobile.jpeg);
+        background-size:cover;
+        background-position:50% 30%;
+    }
+    .modelS {
+        background-image: url(./Model-S-homepage-mobile.jpg);
+        background-position: 50% 30%;
+        background-size: cover;
+    }
+
+}
